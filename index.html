@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Ihsan Favian - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset dan Gaya Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        /* Navbar */
+        nav {
+            background: #15776a;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: #4ee6cc;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #4ee6cc;
+        }
+        
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #4ee6cc 0%, #15776a 100%);
+            border-radius: 0 0 30px 30px;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .hero-content {
+            max-width: 50%;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+            line-height: 1.2;
+        }
+        
+        .hero h2 {
+            font-size: 1.8rem;
+            margin-top: 15px;
+            color: #e0f7f3;
+        }
+        
+        .hero p {
+            margin-top: 20px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            margin-top: 28px;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 28px;
+            background: white;
+            color: #15776a;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            display: inline-block;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        
+        .btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+        }
+        
+        /* Skills Section */
+        .skills-section {
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #15776a;
+            margin-bottom: 10px;
+        }
+        
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .skills-container {
+            display: flex;
+            gap: 30px;
+            padding: 20px;
+            overflow-x: auto;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .skill-card {
+            flex: 0 0 250px;
+            text-align: center;
+            padding: 25px 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-icon {
+            height: 60px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .skill-card h3 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #15776a;
+        }
+        
+        .skill-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* Projects Section */
+        .projects-section {
+            padding: 60px 40px;
+            background-color: #f0f9f7;
+            margin-top: 40px;
+        }
+        
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .project-card {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 25px;
+            width: 350px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: #4ee6cc;
+        }
+        
+        .project-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .project-card h3 {
+            margin: 10px 0;
+            color: #333;
+            font-size: 1.3rem;
+        }
+        
+        .project-card p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .tech-tag {
+            background: #e0f7f3;
+            color: #15776a;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* Achievements Section */
+        .achievements-section {
+            padding: 60px 40px;
+            background-color: white;
+            margin-top: 40px;
+        }
+        
+        .achievements-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .achievement-card {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 20px;
+            width: 280px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .achievement-card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: #4ee6cc;
+        }
+        
+        .achievement-year {
+            color: #15776a;
+            font-weight: 600;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        .achievement-card h3 {
+            margin: 10px 0;
+            color: #333;
+            font-size: 1.3rem;
+        }
+        
+        .achievement-card p {
+            color: #666;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #15776a 0%, #0e5a4f 100%);
+            border-radius: 30px;
+            color: white;
+            margin: 60px 40px;
+            text-align: center;
+        }
+        
+        .contact-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .contact-subtitle {
+            color: #e0f7f3;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-divider {
+            margin: 30px auto;
+            width: 80%;
+            border: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .contact-item {
+            text-align: center;
+            margin: 20px;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .contact-icon {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover .contact-icon {
+            background: rgba(0, 0, 0, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .contact-label {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: #b8f2e6;
+            margin-bottom: 5px;
+        }
+        
+        .contact-detail {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0e5a4f;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #4ee6cc;
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            color: #b8f2e6;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                margin-bottom: 40px;
+            }
+            
+            nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-section {
+                margin: 40px 20px;
+                padding: 40px 20px;
+            }
+            
+            .contact-title {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                display: block;
+                margin: 15px auto;
+                width: 80%;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Portfolio<span>Saya</span></div>
+        <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#skills">Keahlian</a></li>
+            <li><a href="#projects">Proyek</a></li>
+            <li><a href="#achievements">Pencapaian</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Muhammad Ihsan Favian</h1>
+            <h2>Calon Full-Stack Developer</h2>
+            <p>Saya adalah seorang developer yang bersemangat dalam menciptakan aplikasi web yang efisien dan scalable. Saya ahli dalam mengubah masalah kompleks menjadi desain yang sederhana, indah, dan intuitif. Saat ini saya sedang mengembangkan keterampilan dalam framework JavaScript modern dan teknologi cloud.</p>
+            <a href="#contact" class="btn">Hubungi Saya</a>
+            <a href="#" class="btn btn-secondary" onclick="downloadCV()">Unduh CV</a>
+        </div>
+        <div>
+            <img src="1765852246970.jpg" alt="Foto Profil" class="profile-img">
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="section-title">
+            <h2>Keahlian Teknis Saya</h2>
+            <p>Saya telah mengembangkan berbagai keahlian melalui pembelajaran akademik, proyek pribadi, dan peningkatan diri secara terus-menerus dalam pengembangan perangkat lunak.</p>
+        </div>
+        <div class="skills-container">
+            <div class="skill-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png" alt="Pemrograman" class="skill-icon">
+                <h3>Pemrograman</h3>
+                <p>Mahir dalam berbagai bahasa pemrograman termasuk Java, Python, JavaScript, dan C++. Berpengalaman dalam menulis kode yang bersih, efisien, dan mudah dipelihara untuk berbagai aplikasi.</p>
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1998/1998664.png" alt="Pemecahan Masalah" class="skill-icon">
+                <h3>Pemecahan Masalah</h3>
+                <p>Kemampuan analitis yang kuat untuk mengidentifikasi, memecahkan, dan menyelesaikan tantangan kompleks dalam pengembangan perangkat lunak. Ahli dalam desain dan optimalisasi algoritma.</p>
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2906/2906206.png" alt="Manajemen Proyek" class="skill-icon">
+                <h3>Manajemen Proyek</h3>
+                <p>Berpengalaman dalam mengelola proyek perangkat lunak dari konsep hingga deployment, menggunakan metodologi agile, version control, dan alat kolaborasi tim.</p>
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3067/3067256.png" alt="Keamanan" class="skill-icon">
+                <h3>Keamanan Perangkat Lunak</h3>
+                <p>Berpengetahuan dalam mengembangkan aplikasi yang aman, mengimplementasikan sistem autentikasi/otorisasi, dan melindungi dari kerentanan web umum.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="section-title">
+            <h2>Proyek Saya</h2>
+            <p>Berikut adalah beberapa proyek yang telah saya kerjakan untuk menunjukkan keahlian dan pengalaman saya.</p>
+        </div>
+        <div class="projects-container">
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Platform E-commerce">
+                <h3>Platform E-commerce</h3>
+                <p>Aplikasi e-commerce full-stack dengan autentikasi pengguna, pemrosesan pembayaran, dan dashboard admin yang dibangun dengan React, Node.js, dan MongoDB.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">Express</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aplikasi Manajemen Tugas">
+                <h3>Aplikasi Manajemen Tugas</h3>
+                <p>Aplikasi manajemen tugas responsif dengan fungsionalitas drag-and-drop, pembaruan real-time, dan fitur kolaborasi tim.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">LocalStorage</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1593642532744-d377ab507dc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aplikasi Cuaca">
+                <h3>Aplikasi Prakiraan Cuaca</h3>
+                <p>Aplikasi cuaca yang ramah mobile dengan deteksi lokasi, prakiraan 7 hari, dan grafik interaktif menggunakan OpenWeather API.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">API</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Responsive Design</span>
+                    <span class="tech-tag">Chart.js</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements-section">
+        <div class="section-title">
+            <h2>Pencapaian & Pengalaman</h2>
+            <p>Pengakuan dan pencapaian selama perjalanan saya sebagai developer.</p>
+        </div>
+        <div class="achievements-container">
+            <div class="achievement-card">
+                <p class="achievement-year">2023</p>
+                <h3>Penghargaan Desain Website</h3>
+                <p>Desainer terobosan tahun 2024 - Diakui untuk solusi desain UI/UX yang inovatif.</p>
+            </div>
+            <div class="achievement-card">
+                <p class="achievement-year">2024</p>
+                <h3>Keunggulan Animasi Web</h3>
+                <p>Desainer terobosan tahun 2024 - Diberikan untuk implementasi kreatif animasi interaktif.</p>
+            </div>
+            <div class="achievement-card">
+                <p class="achievement-year">2024</p>
+                <h3>Pengembangan Front-end</h3>
+                <p>Developer terobosan tahun 2025 - Diakui untuk kinerja luar biasa dalam teknologi front-end.</p>
+            </div>
+            <div class="achievement-card">
+                <p class="achievement-year">2021</p>
+                <h3>Desain Website Terbaik</h3>
+                <p>Desainer terobosan tahun 2022 - Diberikan untuk desain visual dan pengalaman pengguna yang luar biasa.</p>
+            </div>
+            <div class="achievement-card">
+                <p class="achievement-year">2022</p>
+                <h3>Penghargaan UI/UX Design</h3>
+                <p>Desainer terobosan tahun 2023 - Diakui untuk desain antarmuka yang intuitif dan penelitian pengguna.</p>
+            </div>
+            <div class="achievement-card">
+                <p class="achievement-year">2025</p>
+                <h3>Jaminan Kualitas Perangkat Lunak</h3>
+                <p>SQA terobosan tahun 2025 - Diberikan untuk keunggulan dalam metodologi pengujian dan pencegahan bug.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h1 class="contact-title">Hubungi Saya</h1>
+        <p class="contact-subtitle">Saya terbuka untuk kolaborasi, peluang freelance, dan posisi full-time. Mari kita bangun sesuatu yang hebat bersama!</p>
+        
+        <hr class="contact-divider">
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <p class="contact-label">EMAIL</p>
+                <p class="contact-detail">ihsanfavian831@gmail.com</p>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <p class="contact-label">TELEPON</p>
+                <p class="contact-detail">+62 895-4014-39307</p>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fab fa-github"></i>
+                </div>
+                <p class="contact-label">GITHUB</p>
+                <p class="contact-detail">github.com/ihsanfavian831</p>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <p class="contact-label">INSTAGRAM</p>
+                <p class="contact-detail">instagram.com/ihsan._.f</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/ihsanfavian831" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://instagram.com/ihsan._.f" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" title="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" title="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+        </div>
+        <p class="copyright">&copy; 2025 Muhammad Ihsan Favian. Hak cipta dilindungi.</p>
+        <p class="copyright">Dirancang dan dikembangkan dengan ❤️ menggunakan HTML, CSS, dan JavaScript</p>
+    </footer>
+
+    <script>
+        // JavaScript untuk simulasi unduh CV
+        function downloadCV() {
+            alert("CV Anda akan segera diunduh. Dalam implementasi nyata, ini akan mengunduh file CV Anda.");
+            // Di skenario nyata, Anda akan menautkan ke file PDF yang sebenarnya
+            // window.open('path-to-your-cv.pdf', '_blank');
+        }
+        
+        // Smooth scrolling untuk tautan navigasi
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Perubahan latar belakang navbar saat di-scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+            } else {
+                nav.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+            }
+        });
+        
+        // Animasi untuk kartu saat masuk ke viewport
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Terapkan animasi ke semua kartu
+        document.querySelectorAll('.skill-card, .project-card, .achievement-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
